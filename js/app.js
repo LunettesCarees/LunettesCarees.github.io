@@ -24,6 +24,11 @@ var speakButton = document.getElementById('speak');
 var randomButton = document.getElementById('random');
 var resetButton = document.getElementById('reset');
 
+var starButton = document.getElementById('star');
+var speakStarButton = document.getElementById('speak-star');
+
+var starStory = document.getElementById('star-story');
+
 var story = document.getElementById('story');
 
 const phraseOne = ["The turkey", "Mom", "Dad", "The dog", "My teacher", "The elephant", "The cat"];
@@ -144,4 +149,17 @@ resetButton.onclick = function () {
 	resetPhrase();
 	story.textContent = "Story appears here...";
 	speakNow("Reset");
+}
+
+starButton.onclick = function () {
+	if (phraseOneText && phraseTwoText && phraseThreeText && phraseFourText && phraseFiveText) {
+		starStory.textContent = "⭐ " + story.textContent + " ⭐";
+		speakNow("starred");
+	}
+}
+
+speakStarButton.onclick = function () {
+	if (starStory.textContent) {
+		speakNow(starStory.textContent);
+	}
 }

@@ -148,7 +148,7 @@ img {
     z-index: -1;
 }
 
-.btn:main,
+/* .btn:main, */
 .btn:focus {
     user-select: auto;
 }
@@ -192,10 +192,26 @@ img {
     width: 100%;
 }
 
+.star-story {
+    position: fixed;
+    bottom: 30rem;
+    right: 8rem;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 3.6rem;
+    max-width: 35rem;
+
+}
+
 .text-box-container {
     position: fixed;
     bottom: 5rem;
     right: 8rem;
+}
+
+.star-btns {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 #story {
