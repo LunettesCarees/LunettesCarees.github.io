@@ -27,6 +27,8 @@ var resetButton = document.getElementById('reset');
 var starButton = document.getElementById('star');
 var speakStarButton = document.getElementById('speak-star');
 
+var pureStarStory = "";
+
 var starStory = document.getElementById('star-story');
 
 var story = document.getElementById('story');
@@ -153,6 +155,7 @@ resetButton.onclick = function () {
 
 starButton.onclick = function () {
 	if (phraseOneText && phraseTwoText && phraseThreeText && phraseFourText && phraseFiveText) {
+		pureStarStory = story.textContent;
 		starStory.textContent = "⭐ " + story.textContent + " ⭐";
 		speakNow("starred");
 	}
@@ -160,6 +163,6 @@ starButton.onclick = function () {
 
 speakStarButton.onclick = function () {
 	if (starStory.textContent) {
-		speakNow(starStory.textContent);
+		speakNow(pureStarStory);
 	}
 }
