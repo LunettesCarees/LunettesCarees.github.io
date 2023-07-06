@@ -8,12 +8,14 @@ var synth = window.speechSynthesis;
 // var textToSpeak = 'This is the text string that you will generate with your script';
 // var speakButton = document.querySelector('button');
 
+// Get the phrases
 var phraseOneText = "";
 var phraseTwoText = "";
 var phraseThreeText = "";
 var phraseFourText = "";
 var phraseFiveText = "";
 
+// Get the buttons
 var phraseOneButton = document.querySelector('.btn-phrase-1');
 var phraseTwoButton = document.querySelector('.btn-phrase-2');
 var phraseThreeButton = document.querySelector('.btn-phrase-3');
@@ -31,6 +33,8 @@ var pureStarStory = "";
 
 var starStory = document.getElementById('star-story');
 
+
+// The story paragraph
 var story = document.getElementById('story');
 
 const phraseOne = ["The turkey", "Mom", "Dad", "The dog", "My teacher", "The elephant", "The cat"];
@@ -48,6 +52,7 @@ function speakNow(string) {
 	synth.speak(utterThis);
 }
 
+// Reset the phrases
 function resetPhrase(int) {
 	switch (int) {
 		case 4:
@@ -77,6 +82,8 @@ function resetPhrase(int) {
 	}
 }
 
+
+// Randomize the story
 function randomStory() {
 	phraseOneText = phraseOne[Math.floor(Math.random() * phraseOne.length)];
 	phraseTwoText = phraseTwo[Math.floor(Math.random() * phraseTwo.length)];
@@ -93,6 +100,7 @@ function randomStory() {
 // 	speakNow(textToSpeak);
 // }
 
+// Onclick handler for generating phrase one to five
 phraseOneButton.onclick = function () {
 	phraseOneText = phraseOne[Math.floor(Math.random() * phraseOne.length)];
 	speakNow(phraseOneText);
@@ -135,24 +143,28 @@ phraseFiveButton.onclick = function () {
 	}
 }
 
+// Onclick handler for the button that speaks the text
 speakButton.onclick = function () {
 	if (phraseOneText && phraseTwoText && phraseThreeText && phraseFourText && phraseFiveText) {
 		speakNow(story.textContent);
 	}
 }
 
+// Onclick handler for the button that randomizes the story
 randomButton.onclick = function () {
 	randomStory();
 	story.textContent = phraseOneText + " " + phraseTwoText + " " + phraseThreeText + " " + phraseFourText + " " + phraseFiveText + ".";
 	speakNow(story.textContent);
 }
 
+// Onclick handler for the button that resets the story
 resetButton.onclick = function () {
 	resetPhrase();
 	story.textContent = "Story appears here...";
 	speakNow("Reset");
 }
 
+// Onclick handler for the button that stars/saves the story
 starButton.onclick = function () {
 	if (phraseOneText && phraseTwoText && phraseThreeText && phraseFourText && phraseFiveText) {
 		pureStarStory = story.textContent;
@@ -161,6 +173,7 @@ starButton.onclick = function () {
 	}
 }
 
+// Onclick handler for the button that speaks the starred story
 speakStarButton.onclick = function () {
 	if (starStory.textContent) {
 		speakNow(pureStarStory);
